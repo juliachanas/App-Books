@@ -1,14 +1,20 @@
-const BooksList = ({ books, removeBook }) => {
-  return (
-    <ul>
-      {books.map((book) => (
-        <li key={book.id}>
-          {book.title} by {book.author}{' '}
-          <button onClick={() => removeBook(book.id)}>REMOVE</button>
-        </li>
-      ))}
-    </ul>
-  );
-};
+import React from 'react';
+
+class BooksList extends React.Component {
+  render() {
+    return (
+      <ul>
+        {this.props.books.map((book) => (
+          <li key={book.id}>
+            {book.title} by {book.author}{' '}
+            <button onClick={() => this.props.removeBook(book.id)}>
+              REMOVE
+            </button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
 
 export default BooksList;
